@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Todo App</string>
+    <string name="sign_up">Create Account Here ? Sign Up Here</string>
+    <string name="todo_app">Todo App</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+</resources>
