@@ -8,14 +8,14 @@
         android:layout_height="match_parent"
         tools:context=".activity.MainActivity">
 
-        <fragment
+        <FrameLayout
             android:id="@+id/flMain"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bAppBar"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbAdd"
@@ -25,15 +25,27 @@
             app:backgroundTint="@color/light_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:src="@drawable/white_add"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@String/" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bNav"
-            android:layout_width="0dp"
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bAppBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:fabCradleMargin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabCradleVerticalOffset="10dp"
+            tools:ignore="BottomAppBar">
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bNav"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_anchor="@id/bAppBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
