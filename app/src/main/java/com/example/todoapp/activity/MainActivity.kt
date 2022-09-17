@@ -41,9 +41,11 @@ class MainActivity : AppCompatActivity() {
         //if user is note null then open module activity
         if (firebaseUser != null) {
             Log.d("User", firebaseUser.toString())
-        } else {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        } else {
+//            startActivity(Intent(this, LoginActivity::class.java))
+//            finish()
         }
     }
 

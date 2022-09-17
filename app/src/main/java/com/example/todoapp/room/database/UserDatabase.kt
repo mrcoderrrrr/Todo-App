@@ -8,8 +8,8 @@ import com.example.todoapp.model.UserModel
 import com.example.todoapp.room.dao.UserDao
 
 @Database(entities = [UserModel::class], version = 1, exportSchema = false)
-abstract class UserDatabase: RoomDatabase() {
-abstract fun userDao():UserDao
+abstract class UserDatabase():RoomDatabase() {
+    abstract fun userDao(): UserDao
     companion object {
         private var INSTANCE: UserDatabase? = null
         fun getInstance(context: Context): UserDatabase? {

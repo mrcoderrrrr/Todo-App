@@ -25,5 +25,8 @@ class UserDataAdapter(val context: Context,val userData:ArrayList<UserModel>):Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.dataBinding.tvNameTxt.text=userData[position].name
+        holder.dataBinding.tvAgeTxt.text=userData[position].age
+        holder.dataBinding.tvDobTxt.text=userData[position].dob
     }
 }
