@@ -14,16 +14,19 @@ import com.example.todoapp.databinding.ActivityMainBinding
 import com.example.todoapp.fragment.AddUserFragment
 import com.example.todoapp.fragment.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var dataBinding: ActivityMainBinding
     var firebaseAuth: FirebaseAuth? = null
+    var firebaseUser:FirebaseUser?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSupportFragmentManager().beginTransaction().replace(R.id.flMain, HomeFragment()).commit()
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseUser=  firebaseAuth!!.currentUser
         userLogin()
         setClick()
     }
@@ -37,20 +40,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun userLogin() {
-        val firebaseUser = firebaseAuth!!.currentUser
-        //if user is note null then open module activity
         if (firebaseUser != null) {
             Log.d("User", firebaseUser.toString())
+        } else {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        } else {
-//            startActivity(Intent(this, LoginActivity::class.java))
-//            finish()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val menuInflater = getMenuInflater().inflate(R.menu.item_menu_toolbar, menu)
+        val menuInflater = getMenuInflater()
+            menuInflater.inflate(R.menu.item_menu_toolbar, menu)
         return true
     }
 

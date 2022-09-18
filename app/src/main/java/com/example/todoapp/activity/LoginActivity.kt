@@ -22,11 +22,11 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun setClick() {
         dataBinding.btnLogin.setOnClickListener{
-//            if(isLogin()) {
-//                firebaseLogin()
-//            }
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
+            if(isLogin()) {
+                firebaseLogin()
+            }
+//            startActivity(Intent(this,MainActivity::class.java))
+//            finish()
         }
         dataBinding.tvSignUp.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
