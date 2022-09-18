@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentTransaction
 import com.example.todoapp.R
 import com.example.todoapp.databinding.ActivityMainBinding
 import com.example.todoapp.fragment.AddUserFragment
@@ -19,8 +18,8 @@ import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
     lateinit var dataBinding: ActivityMainBinding
-    var firebaseAuth: FirebaseAuth? = null
-    var firebaseUser:FirebaseUser?=null
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseUser:FirebaseUser?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSupportFragmentManager().beginTransaction().replace(R.id.flMain, HomeFragment()).commit()

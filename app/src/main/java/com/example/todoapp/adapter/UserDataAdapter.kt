@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.databinding.ItemUserListBinding
 import com.example.todoapp.model.RegisterModel
-import com.example.todoapp.model.UserModel
 
 class UserDataAdapter(val context: Context, val userData: ArrayList<RegisterModel>):RecyclerView.Adapter<UserDataAdapter.ViewHolder>() {
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {

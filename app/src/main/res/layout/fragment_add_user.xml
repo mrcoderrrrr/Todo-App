@@ -97,7 +97,7 @@
                 android:id="@+id/teDob"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="false"
+                android:focusable="false"
                 android:drawableEnd="@drawable/gray_calendar"
                 android:hint="@string/date_of_birth"
                 android:inputType="textEmailAddress" />

@@ -6,21 +6,18 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.room.Database
 import com.example.todoapp.R
 import com.example.todoapp.databinding.ActivityRegisterBinding
 import com.example.todoapp.model.RegisterModel
-import com.example.todoapp.model.UserModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.lang.ref.Reference
 import java.text.SimpleDateFormat
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var dataBinding: ActivityRegisterBinding
-    lateinit var registerData:ArrayList<RegisterModel>
+    private lateinit var registerData:ArrayList<RegisterModel>
     private lateinit var firebaseAuth: FirebaseAuth
     private var firebaseDatabase: FirebaseDatabase? =null
     private var databaseReference: DatabaseReference? =null

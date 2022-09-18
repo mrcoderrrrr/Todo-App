@@ -9,7 +9,6 @@ import com.example.todoapp.R
 import com.example.todoapp.databinding.ActivityLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var dataBinding:ActivityLoginBinding

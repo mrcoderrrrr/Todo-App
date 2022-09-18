@@ -17,18 +17,21 @@ import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
     lateinit var dataBinding: FragmentHomeBinding
-    var firebaseAuth: FirebaseAuth? =null
-    var firebaseDatabase: FirebaseDatabase? =null
-    var databaseReference: DatabaseReference? =null
+    private var firebaseAuth: FirebaseAuth? =null
+    private var firebaseDatabase: FirebaseDatabase? =null
+    private var databaseReference: DatabaseReference? =null
     var registerData=ArrayList<RegisterModel>()
-    val userDataAdapter: UserDataAdapter? =null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         return dataBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         firebaseAuth=FirebaseAuth.getInstance()
         firebaseDatabase= FirebaseDatabase.getInstance()
         setClick()
@@ -44,7 +47,7 @@ class HomeFragment : Fragment() {
         databaseReference!!.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                   Log.d("UserData", snapshot.toString())
-                      var registerModel=RegisterModel(snapshot.child("name").value.toString(),
+                      val registerModel=RegisterModel(snapshot.child("name").value.toString(),
                           snapshot.child("email").value.toString(),
                           snapshot.child("mobileno").value.toString(),
                           snapshot.child("age").value.toString(),
